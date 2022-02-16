@@ -2,10 +2,11 @@ from Lexico import Lexico
 
 Analizador=Lexico()
 
-cadena="132456"
+cadena="a+b+c+d+e+f"
+listaentrada=list()
 
-token=Analizador.lex(cadena)
+while(Analizador.temp!="$"):
+    token=Analizador.lex(cadena)
 
-print(token)
-
-Analizador.Show_TokenType(token)
+    Analizador.Show_TokenType(token)
+    listaentrada.append(token)

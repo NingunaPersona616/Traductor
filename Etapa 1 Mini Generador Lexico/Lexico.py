@@ -2,16 +2,19 @@ import enum
 
 cadena="1324.56"
 
-class TipoToken(enum.Enum):
+class TipoToken():
     identificador=0
-    entero=1
-    real=2
+    add=1
+    pesos=2
+    entero=4
+    real=5
 
 class Lexico:
     edo=0
     index=0
     continua=False
     tipo=-1
+    temp=""
     
     def lex(self,cadena):
         edo=0
@@ -27,6 +30,11 @@ class Lexico:
 
                 elif(c>='a' and c<='z' or c>='A' and c<='Z' or c=='_'):
                     edo=100
+                    self.temp+=c
+
+                elif(c=='+'):
+                    #print("a")
+                    edo=4
                     self.temp+=c
 
                 else:
@@ -63,6 +71,10 @@ class Lexico:
                 else:
                     self.continua=False
                     self.index-=1
+                
+            elif(edo==4):
+                self.continua=False
+                self.index-=1
 
             elif(edo==100):
                 if(c>='a' and c<='z' or c>='A' and c<='Z' or c=='_'):
@@ -77,16 +89,23 @@ class Lexico:
         
 
         #Se verifica que tipo de token es y se guarda en un diccionario
+
         if(edo==1):
             self.tipo=TipoToken.entero
 
         elif(edo==3):
             self.tipo=TipoToken.real
+            
+        elif(edo==4):
+            self.tipo=TipoToken.add
 
         elif(edo==100):
             self.tipo=TipoToken.identificador
 
-        print(self.temp)
+        elif(self.index>=len(cadena)):
+            self.tipo=TipoToken.pesos
+            self.temp="$"
+        #print(self.temp)
 
         TablaSalida={'lexema':self.temp, 'tipo':self.tipo}
 
@@ -101,3 +120,9 @@ class Lexico:
 
         elif(TokenEntrada['tipo']==TipoToken.identificador):
             print(TokenEntrada['lexema'], " : Es un identificador")
+
+        elif(TokenEntrada['tipo']==TipoToken.add):
+            print(TokenEntrada['lexema'], " : Es un simbolo adicion")
+
+        elif(TokenEntrada['tipo']==TipoToken.pesos):
+            print(TokenEntrada['lexema'], " : Fin de cadena")
