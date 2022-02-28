@@ -14,3 +14,8 @@ Analizador sintactico que trabaja en conjunto con el analizador lexico para reso
 Analizador Sintáctico (Implementación usando Objetos)
 
 IDEA: checar con más tablas LR
+
+## Etapa 4: Gramatica del Compilador
+Se lee una gramatica desde un arhivo externo y se pasa a la gramatica del analizador sintactico
+
+IDEA: Checar las reglas a fondo, espero que el analizador lexico ya no tenga bugs
