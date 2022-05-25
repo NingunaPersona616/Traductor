@@ -1,4 +1,5 @@
 # Traductor de la materia Sem. Trad. 2
+
 ## Primera etapa del proyecto: Analizador Lexico
 Mini analizador lexico que acepta los ismbolos de simbolos_lexicos.pdf
 
@@ -19,3 +20,9 @@ IDEA: checar con más tablas LR
 Se lee una gramatica desde un arhivo externo y se pasa a la gramatica del analizador sintactico
 
 IDEA: Checar las reglas a fondo, espero que el analizador lexico ya no tenga bugs
+
+## Etapa 5 Arbol Sintactico
+Creacion del arbol sintactico a partir de nodos (sin la creacion de las 52 clases) y una lista que almacena los nodos como si se tratara de un arbol. Arregle el lexico ya que dejaba pasar tokens que no debian entrar al sintactico.
+
+## Etapa 6 Analisis Semantico
+Recorrido del arbol sintactico comprobando la semantica de cada uno de los nodos y sus posibles errores, utilizando un arbol de nodos genericos y no los 52 nodos que se habian pedido.
