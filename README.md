@@ -1,4 +1,11 @@
 # Traductor de la materia Sem. Trad. 2
+
+### Nombre: Hernández Ledezma Brandon
+
+### Código: 215515031
+
+### Sección: D02
+
 # Funcionamiento del proyecto final
 Se comprobara el funcionamiento del proyecto con la cadena: 
 
